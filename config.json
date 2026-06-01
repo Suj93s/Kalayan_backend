@@ -1,0 +1,40 @@
+{
+  "websites": {
+    "novoxcore": {
+      "name": "NovoxCore",
+      "url": "https://novoxcore.com/",
+      "enabled": true,
+      "auto_update": true,
+      "max_pages": 150
+    },
+    "novoxedtech": {
+      "name": "NovoxEdTech",
+      "url": "https://novoxedtech.com/",
+      "enabled": false,
+      "auto_update": true,
+      "max_pages": 150
+    }
+  },
+  "scheduler": {
+    "enabled": true,
+    "update_hour": 2,
+    "update_minute": 0,
+    "timezone": "UTC"
+  },
+  "output": {
+    "chunks_dir": "cleaned_chunks",
+    "vector_db_dir": "vector_db",
+    "logs_dir": "logs",
+    "state_file": ".update_state.json"
+  },
+  "crawler": {
+    "timeout_seconds": 60,
+    "max_retries": 2,
+    "concurrent_pages": 6
+  },
+  "chunking": {
+    "chunk_size": 300,
+    "chunk_overlap": 50,
+    "min_chunk_words": 15
+  }
+}

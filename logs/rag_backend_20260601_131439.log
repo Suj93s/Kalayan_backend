@@ -1,0 +1,31 @@
+[2026-06-01 13:14:39] [INFO] ======================================================================
+[2026-06-01 13:14:39] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-06-01 13:14:39] [INFO] ======================================================================
+[2026-06-01 13:14:39] [INFO] 
+Processing: NovoxCore
+[2026-06-01 13:14:39] [INFO] Starting crawl: https://novoxcore.com/
+[2026-06-01 13:14:39] [INFO] Starting crawl with 1 seed URL(s)
+[2026-06-01 13:14:39] [INFO] [CRAWL] https://novoxcore.com/
+[2026-06-01 13:14:46] [INFO] [OK] https://novoxcore.com/
+[2026-06-01 13:14:46] [INFO] [CRAWL] https://novoxcore.com/contact.html
+[2026-06-01 13:14:53] [INFO] [OK] https://novoxcore.com/contact
+[2026-06-01 13:14:53] [INFO] [CRAWL] http://novoxcore.com/about.html
+[2026-06-01 13:14:58] [INFO] [OK] https://novoxcore.com/about
+[2026-06-01 13:14:58] [INFO] [CRAWL] http://novoxcore.com/services.html
+[2026-06-01 13:15:01] [INFO] [OK] https://novoxcore.com/services
+[2026-06-01 13:15:01] [INFO] [CRAWL] http://novoxcore.com/team.html
+[2026-06-01 13:15:04] [INFO] [OK] https://novoxcore.com/team
+[2026-06-01 13:15:04] [INFO] [CRAWL] http://novoxcore.com/careers.html
+[2026-06-01 13:15:08] [INFO] [OK] https://novoxcore.com/careers
+[2026-06-01 13:15:08] [INFO] Downloaded pages: 6
+[2026-06-01 13:15:08] [INFO] Failed pages: 0
+[2026-06-01 13:15:08] [INFO] Downloaded: 6 pages
+[2026-06-01 13:15:08] [INFO] Duplicates removed: 0
+[2026-06-01 13:15:08] [INFO] Junk filtered: 0
+[2026-06-01 13:15:08] [INFO] Chunks generated: 6
+[2026-06-01 13:15:08] [INFO] Saved to: cleaned_chunks/novoxcore_chunks.json
+[2026-06-01 13:15:08] [INFO] Skipping disabled website: NovoxEdTech
+[2026-06-01 13:15:08] [INFO] ======================================================================
+[2026-06-01 13:15:08] [INFO] TOTAL CHUNKS GENERATED: 6
+[2026-06-01 13:15:08] [INFO] Update completed successfully
+[2026-06-01 13:15:08] [INFO] ======================================================================

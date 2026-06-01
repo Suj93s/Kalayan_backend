@@ -1,0 +1,32 @@
+[2026-05-30 16:03:57] [INFO] ======================================================================
+[2026-05-30 16:03:57] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-05-30 16:03:57] [INFO] ======================================================================
+[2026-05-30 16:03:57] [INFO] 
+Processing: NovoxCore
+[2026-05-30 16:03:57] [INFO] Starting crawl: https://novoxcore.com/
+[2026-05-30 16:03:57] [ERROR] Pipeline error: BasicCrawler.__init__() got an unexpected keyword argument 'min_concurrency'
+Traceback (most recent call last):
+  File "/home/dona/novox_ingestion/run_pipeline.py", line 69, in run
+    chunks = await self._process_website(website_key, website_config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dona/novox_ingestion/run_pipeline.py", line 92, in _process_website
+    crawler = NovoxCrawler(
+        max_retries=self.config["crawler"].get("max_retries", 2),
+        max_requests_per_crawl=max_pages,
+        concurrency=self.config["crawler"].get("concurrent_pages", 6),
+    )
+  File "/home/dona/novox_ingestion/crawler.py", line 27, in __init__
+    self.crawler = PlaywrightCrawler(
+                   ~~~~~~~~~~~~~~~~~^
+    
+    
+    ...<9 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/dona/novox_ingestion/.venv/lib/python3.13/site-packages/crawlee/crawlers/_playwright/_playwright_crawler.py", line 234, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: BasicCrawler.__init__() got an unexpected keyword argument 'min_concurrency'
+[2026-05-30 16:03:57] [INFO] ======================================================================

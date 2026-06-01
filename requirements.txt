@@ -1,0 +1,4 @@
+crawlee
+trafilatura
+playwright
+apscheduler

@@ -1,0 +1,137 @@
+[2026-05-30 15:51:12] [INFO] ======================================================================
+[2026-05-30 15:51:12] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-05-30 15:51:12] [INFO] ======================================================================
+[2026-05-30 15:51:12] [INFO] 
+Processing: NovoxCore
+[2026-05-30 15:51:12] [INFO] Starting crawl: https://novoxcore.com/
+[2026-05-30 15:51:12] [INFO] Starting crawl with 1 seed URL(s)
+[2026-05-30 15:53:44] [INFO] [CRAWL] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [OK] Downloaded https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/blog.html
+[2026-05-30 15:53:44] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/gallery.html
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:44] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:44] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/terms-and-conditions.html
+[2026-05-30 15:53:51] [INFO] [CRAWL] https://novoxcore.com/careers
+[2026-05-30 15:53:51] [DEBUG] [OK] Downloaded https://novoxcore.com/careers
+[2026-05-30 15:53:51] [INFO] [CRAWL] https://novoxcore.com/contact
+[2026-05-30 15:53:51] [DEBUG] [OK] Downloaded https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/services
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/team
+[2026-05-30 15:53:52] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/blog.html
+[2026-05-30 15:53:52] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/gallery.html
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/careers
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/terms-and-conditions.html
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/services
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/team
+[2026-05-30 15:53:52] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/blog.html
+[2026-05-30 15:53:52] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/gallery.html
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/careers
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:52] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:52] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/terms-and-conditions.html
+[2026-05-30 15:53:53] [INFO] [CRAWL] https://novoxcore.com/team
+[2026-05-30 15:53:53] [DEBUG] [OK] Downloaded https://novoxcore.com/team
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/services
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/team
+[2026-05-30 15:53:53] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/blog.html
+[2026-05-30 15:53:53] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/gallery.html
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/careers
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:53] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:53] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/terms-and-conditions.html
+[2026-05-30 15:53:54] [INFO] [CRAWL] https://novoxcore.com/about
+[2026-05-30 15:53:54] [DEBUG] [OK] Downloaded https://novoxcore.com/about
+[2026-05-30 15:53:54] [INFO] [CRAWL] https://novoxcore.com/services
+[2026-05-30 15:53:54] [DEBUG] [OK] Downloaded https://novoxcore.com/services
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/services
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/team
+[2026-05-30 15:53:54] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/blog.html
+[2026-05-30 15:53:54] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/gallery.html
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/careers
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/about
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/services
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/team
+[2026-05-30 15:53:54] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/blog.html
+[2026-05-30 15:53:54] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/gallery.html
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/careers
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/contact
+[2026-05-30 15:53:54] [DEBUG] [DUPLICATE] https://novoxcore.com/
+[2026-05-30 15:53:54] [DEBUG] [FILTER] Junk URL: https://novoxcore.com/terms-and-conditions.html
+[2026-05-30 15:53:54] [INFO] Crawl completed. Downloaded 6 pages
+[2026-05-30 15:53:54] [INFO]   Downloaded: 6 pages
+[2026-05-30 15:53:54] [INFO]   Duplicates removed: 90
+[2026-05-30 15:53:54] [INFO]   Junk filtered: 17
+[2026-05-30 15:53:55] [INFO]   Chunks generated: 6
+[2026-05-30 15:53:55] [INFO]   Saved to: cleaned_chunks/novoxcore_chunks.json
+[2026-05-30 15:53:55] [INFO] Skipping disabled website: NovoxEdTech
+[2026-05-30 15:53:55] [INFO] ======================================================================
+[2026-05-30 15:53:55] [INFO] TOTAL CHUNKS GENERATED: 6
+[2026-05-30 15:53:55] [INFO] Update completed successfully
+[2026-05-30 15:53:55] [INFO] ======================================================================

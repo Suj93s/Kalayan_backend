@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        NovoxCore AI Assistant
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div class="logo">
+                🤖
+            </div>
+
+            <h1>
+                NovoxCore AI Assistant
+            </h1>
+
+            <p class="subtitle">
+                Built for NovoxCore
+            </p>
+
+        </div>
+
+        <!-- Chat Area -->
+
+        <div id="chat-box">
+
+            <div id="welcome">
+
+                <h2>
+                    👋 Welcome
+                </h2>
+
+                <p>
+                    Ask anything about
+                    NovoxCore, our services,
+                    technologies, team,
+                    careers, or contact
+                    information.
+                </p>
+
+                <div class="suggestions">
+
+                    <button
+                        onclick="askSuggestion('What is NovoxCore?')"
+                    >
+                        🚀 What is NovoxCore?
+                    </button>
+
+                    <button
+                        onclick="askSuggestion('What services do you provide?')"
+                    >
+                        💼 Services
+                    </button>
+
+                    <button
+                        onclick="askSuggestion('What are your AI capabilities?')"
+                    >
+                        🤖 AI Capabilities
+                    </button>
+
+                    <button
+                        onclick="askSuggestion('Tell me about the NovoxCore team')"
+                    >
+                        👥 Team
+                    </button>
+
+                    <button
+                        onclick="askSuggestion('How can I contact NovoxCore?')"
+                    >
+                        📞 Contact Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Input Area -->
+
+        <div class="input-area">
+
+            <input
+                type="text"
+                id="question"
+                placeholder="Ask about NovoxCore..."
+                autocomplete="off"
+            >
+
+            <button
+                id="send-btn"
+                onclick="sendMessage()"
+            >
+                Send ➜
+            </button>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="footer">
+            Built for NovoxCore
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+

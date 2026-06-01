@@ -1,0 +1,20 @@
+[2026-05-30 16:44:05] [INFO] ======================================================================
+[2026-05-30 16:44:05] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-05-30 16:44:05] [INFO] ======================================================================
+[2026-05-30 16:44:05] [INFO] 
+Processing: NovoxCore
+[2026-05-30 16:44:05] [INFO] Starting crawl: https://novoxcore.com/
+[2026-05-30 16:44:05] [INFO] Starting crawl with 1 seed URL(s)
+[2026-05-30 16:46:06] [INFO] Crawl completed.
+[2026-05-30 16:46:06] [INFO] Downloaded pages: 0
+[2026-05-30 16:46:06] [INFO] Failed pages: 0
+[2026-05-30 16:46:06] [INFO] Downloaded: 0 pages
+[2026-05-30 16:46:06] [INFO] Duplicates removed: 0
+[2026-05-30 16:46:06] [INFO] Junk filtered: 0
+[2026-05-30 16:46:06] [INFO] Chunks generated: 0
+[2026-05-30 16:46:06] [INFO] Saved to: cleaned_chunks/novoxcore_chunks.json
+[2026-05-30 16:46:06] [INFO] Skipping disabled website: NovoxEdTech
+[2026-05-30 16:46:06] [INFO] ======================================================================
+[2026-05-30 16:46:06] [INFO] TOTAL CHUNKS GENERATED: 0
+[2026-05-30 16:46:06] [INFO] Update completed successfully
+[2026-05-30 16:46:06] [INFO] ======================================================================

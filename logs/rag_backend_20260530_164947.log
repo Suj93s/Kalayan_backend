@@ -1,0 +1,24 @@
+[2026-05-30 16:49:47] [INFO] ======================================================================
+[2026-05-30 16:49:47] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-05-30 16:49:47] [INFO] ======================================================================
+[2026-05-30 16:49:47] [INFO] 
+Processing: NovoxCore
+[2026-05-30 16:49:47] [INFO] Starting crawl: https://novoxcore.com/
+[2026-05-30 16:49:47] [INFO] Starting crawl with 1 seed URL(s)
+[2026-05-30 16:49:47] [INFO] [CRAWL] https://novoxcore.com/
+[2026-05-30 16:50:07] [WARNING] [ERROR] https://novoxcore.com/: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://novoxcore.com/", waiting until "domcontentloaded"
+
+[2026-05-30 16:50:07] [INFO] Downloaded pages: 0
+[2026-05-30 16:50:07] [INFO] Downloaded: 0 pages
+[2026-05-30 16:50:07] [INFO] Duplicates removed: 0
+[2026-05-30 16:50:07] [INFO] Junk filtered: 0
+[2026-05-30 16:50:07] [WARNING] Failed: 1 pages
+[2026-05-30 16:50:07] [INFO] Chunks generated: 0
+[2026-05-30 16:50:07] [INFO] Saved to: cleaned_chunks/novoxcore_chunks.json
+[2026-05-30 16:50:07] [INFO] Skipping disabled website: NovoxEdTech
+[2026-05-30 16:50:07] [INFO] ======================================================================
+[2026-05-30 16:50:07] [INFO] TOTAL CHUNKS GENERATED: 0
+[2026-05-30 16:50:07] [INFO] Update completed successfully
+[2026-05-30 16:50:07] [INFO] ======================================================================

@@ -1,0 +1,16 @@
+[2026-05-30 15:50:07] [INFO] ======================================================================
+[2026-05-30 15:50:07] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-05-30 15:50:07] [INFO] ======================================================================
+[2026-05-30 15:50:07] [INFO] 
+Processing: NovoxCore
+[2026-05-30 15:50:07] [INFO] Starting crawl: https://novoxcore.com/
+[2026-05-30 15:50:07] [ERROR] Pipeline error: 'PlaywrightCrawler' object has no attribute 'config'
+Traceback (most recent call last):
+  File "/home/dona/novox_ingestion/run_pipeline.py", line 69, in run
+    chunks = await self._process_website(website_key, website_config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dona/novox_ingestion/run_pipeline.py", line 93, in _process_website
+    crawler.crawler.config.max_requests_per_crawl = max_pages
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PlaywrightCrawler' object has no attribute 'config'
+[2026-05-30 15:50:07] [INFO] ======================================================================
