@@ -1,4 +1,4 @@
-# RAG Backend (NovoxCore / NovoxEdTech)
+# RAG Backend (NovoxCore)
 
 This repository contains the ingestion pipeline and simple backend for
 building a knowledge base for a Retrieval-Augmented Generation (RAG)
