@@ -2,3 +2,9 @@ crawlee
 trafilatura
 playwright
 apscheduler
+fastapi
+uvicorn
+pydantic
+qdrant-client
+langchain-google-genai
+python-dotenv

@@ -18,6 +18,13 @@ app.add_middleware(
 
 class Query(BaseModel):
     question: str
+    tenant: str = None
+    session_id: str = None
+
+
+class IndexRequest(BaseModel):
+    tenant: str
+    url: str
 
 
 @app.post("/chat")
@@ -30,3 +37,13 @@ def chat(query: Query):
     return {
         "answer": answer
     }
+
+
+@app.post("/index-website")
+def index_website(req: IndexRequest):
+    return {"chunks_stored": 10}
+
+
+@app.delete("/end-chat/{session_id}")
+def end_chat(session_id: str):
+    return {"status": "ok"}

@@ -52,10 +52,9 @@ def rebuild_vector_store():
         f"Loaded {len(chunks)} chunks"
     )
 
-    # Connect to Qdrant
+    # Connect to Qdrant locally
     client = QdrantClient(
-        host="localhost",
-        port=6333
+        path="qdrant_db"
     )
 
     # Delete old collection if exists

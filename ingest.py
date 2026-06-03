@@ -8,7 +8,7 @@ _NAV_KEYWORDS = {"home", "about", "services", "service", "team", "blog", "contac
                  "copyright", "©", "follow us", "get in touch", "subscribe"}
 
 # Minimum number of words a chunk must have to be included
-MIN_CHUNK_WORDS = 30
+MIN_CHUNK_WORDS = 5
 
 
 def _is_nav_or_footer_line(line: str) -> bool:
@@ -26,9 +26,14 @@ def _is_nav_or_footer_line(line: str) -> bool:
         return True
 
     # Detect common footer / CTA exact phrases
-    for phrase in ("let's talk", "lets talk", "all rights reserved", "©"):
-        if phrase in clean and len(words) <= 12:
+    for phrase in ("let's talk", "lets talk", "all rights reserved", "©", "terms & conditions", "subscribe", "continue scrolling", "explore more"):
+        if phrase in clean and len(words) <= 20:
             return True
+            
+    # Also check if it's a very short nav-like line
+    if len(words) <= 10 and matched / max(1, len(words)) >= 0.3:
+        return True
+        
     return False
 
 
@@ -146,6 +151,7 @@ def clean_website_text(
     )
 
     extra_content = []
+    current_section = []
 
     for tag in soup.find_all(
         [
@@ -155,7 +161,9 @@ def clean_website_text(
             "h4",
             "h5",
             "h6",
-            "li"
+            "li",
+            "a",
+            "p"
         ]
     ):
         text = tag.get_text(
@@ -163,16 +171,43 @@ def clean_website_text(
             strip=True
         )
 
-        if (
-            text
-            and len(text.split()) >= 2
-            and text not in extra_content
-        ):
-            extra_content.append(text)
+        if text and len(text.split()) >= 2:
+            if tag.name.startswith("h"):
+                if current_section:
+                    extra_content.append("\n".join(current_section))
+                current_section = [text + ":"]
+            else:
+                if text not in current_section:
+                    current_section.append(text + ".")
+
+    # Explicitly extract emails and phone numbers
+    contacts = []
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if href.startswith("mailto:"):
+            email = href.replace("mailto:", "").strip()
+            if email not in contacts:
+                contacts.append(f"Email: {email}")
+        elif href.startswith("tel:"):
+            phone = href.replace("tel:", "").strip()
+            if phone not in contacts:
+                contacts.append(f"Phone: {phone}")
+    
+    if contacts:
+        extra_content.append("Contact Details: " + ", ".join(contacts) + ".")
+
+    if current_section:
+        extra_content.append("\n".join(current_section))
 
     if extra_content:
-        extracted += "\n\n" + "\n".join(
+        extracted += "\n---SECTION---\n" + "\n---SECTION---\n".join(
             extra_content
+        )
+
+    # Optional nav/footer cleaning
+    if not skip_nav_footer:
+        extracted = _remove_nav_footer(
+            extracted
         )
 
     extracted = re.sub(
@@ -181,72 +216,64 @@ def clean_website_text(
         extracted
     )
 
-    # Optional nav/footer cleaning
-    if not skip_nav_footer:
-        extracted = _remove_nav_footer(
-            extracted
-        )
-
-    sentences = _split_sentences(
-        extracted
-    )
+    # Split by standard sentences and our section delimiter
+    sentences = re.split(r'(?<=[.!?])\s+|---SECTION---', extracted)
 
     sentences = _deduplicate_sentences(
         sentences
     )
 
-    return " ".join(sentences)
+    return " ---SECTION--- ".join(sentences)
 
 
 def generate_overlapping_chunks(text: str, chunk_size: int = 200, overlap: int = 30, min_chunk_words: int | None = None) -> list[str]:
     """
-    Splits prose into sentence-aware overlapping chunks.
-    Each chunk targets ~chunk_size words. Overlap is achieved by including
-    the last `overlap` words of the previous chunk as a prefix for the next.
-    Chunks below MIN_CHUNK_WORDS are discarded.
+    Splits prose into sentence-aware overlapping chunks, respecting semantic section boundaries.
     """
     if not text:
         return []
 
-    sentences = _split_sentences(text)
-    if not sentences:
+    sections = [s.strip() for s in text.split("---SECTION---") if s.strip()]
+    if not sections:
         return []
 
     chunks = []
-    current_sentences: list[str] = []
-    current_word_count = 0
-    overlap_buffer: list[str] = []  # tail sentences carried over for overlap
+    effective_min = MIN_CHUNK_WORDS if min_chunk_words is None else min_chunk_words
 
-    for sentence in sentences:
-        word_count = len(sentence.split())
-        if current_word_count + word_count > chunk_size and current_sentences:
-            # Emit the current chunk
+    for section in sections:
+        sentences = _split_sentences(section)
+        if not sentences:
+            continue
+            
+        current_sentences: list[str] = []
+        current_word_count = 0
+        overlap_buffer: list[str] = []
+
+        for sentence in sentences:
+            word_count = len(sentence.split())
+            if current_word_count + word_count > chunk_size and current_sentences:
+                chunk_text = " ".join(current_sentences)
+                if len(chunk_text.split()) >= effective_min:
+                    chunks.append(chunk_text)
+
+                overlap_sentences: list[str] = []
+                overlap_words = 0
+                for s in reversed(current_sentences):
+                    wc = len(s.split())
+                    if overlap_words + wc > overlap:
+                        break
+                    overlap_sentences.insert(0, s)
+                    overlap_words += wc
+
+                current_sentences = overlap_sentences + [sentence]
+                current_word_count = overlap_words + word_count
+            else:
+                current_sentences.append(sentence)
+                current_word_count += word_count
+
+        if current_sentences:
             chunk_text = " ".join(current_sentences)
-            effective_min = MIN_CHUNK_WORDS if min_chunk_words is None else min_chunk_words
             if len(chunk_text.split()) >= effective_min:
                 chunks.append(chunk_text)
-
-            # Build the overlap buffer: keep trailing sentences until ≥ overlap words
-            overlap_sentences: list[str] = []
-            overlap_words = 0
-            for s in reversed(current_sentences):
-                wc = len(s.split())
-                if overlap_words + wc > overlap:
-                    break
-                overlap_sentences.insert(0, s)
-                overlap_words += wc
-
-            current_sentences = overlap_sentences + [sentence]
-            current_word_count = overlap_words + word_count
-        else:
-            current_sentences.append(sentence)
-            current_word_count += word_count
-
-    # Emit any remaining sentences
-    if current_sentences:
-        chunk_text = " ".join(current_sentences)
-        effective_min = MIN_CHUNK_WORDS if min_chunk_words is None else min_chunk_words
-        if len(chunk_text.split()) >= effective_min:
-            chunks.append(chunk_text)
 
     return chunks

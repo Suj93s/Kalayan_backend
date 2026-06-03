@@ -1,25 +1,36 @@
 import sys
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
-from langchain_ollama import ChatOllama
+load_dotenv()
+
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from backend.retrieval import retrieve_context
 from backend.prompt import SYSTEM_PROMPT
 
 
-llm = ChatOllama(
-    model="llama3"
-)
+def get_llm():
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        return None
+    
+    return ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash"
+    )
+
+llm = get_llm()
 
 
 def answer_question(question: str):
 
     contexts = retrieve_context(
         question,
-        k=1
+        k=8
     )
 
     if not contexts:
@@ -29,8 +40,18 @@ def answer_question(question: str):
             "knowledge base."
         )
 
-    # Use only the best matching chunk
-    context_text = contexts[0]
+    # 1. Retrieved chunks from Qdrant
+    print("\n" + "="*50)
+    print("DEBUG - 1. Retrieved chunks from Qdrant:")
+    for idx, chunk in enumerate(contexts):
+        print(f"--- Chunk {idx + 1} ---\n{chunk}\n")
+
+    # Combine the top matching chunks
+    context_text = "\n\n".join(contexts)
+
+    # 2. Raw context sent to Gemini
+    print("DEBUG - 2. Raw context sent to Gemini:")
+    print(f"{context_text}\n")
 
     prompt = f"""
 {SYSTEM_PROMPT}
@@ -41,16 +62,26 @@ CONTEXT:
 QUESTION:
 {question}
 
-Provide a complete but concise answer.
-List all major services or capabilities when relevant,
-but omit technical sub-details.
+Provide a complete but concise answer based ONLY on the context above.
 
 ANSWER:
 """
 
+    # 3. Final prompt sent to Gemini
+    print("DEBUG - 3. Final prompt sent to Gemini:")
+    print(f"{prompt}\n")
+
+    if not llm:
+        return "Error: GOOGLE_API_KEY is not set. Please check your .env configuration."
+
     try:
 
         response = llm.invoke(prompt)
+
+        # 4. Gemini response before formatting
+        print("DEBUG - 4. Gemini response before formatting:")
+        print(f"{repr(response)}\n")
+        print("="*50 + "\n")
 
         if not response.content:
             return (
@@ -61,11 +92,13 @@ ANSWER:
         return response.content.strip()
 
     except Exception as e:
-
-        return (
-            f"Error generating answer: "
-            f"{str(e)}"
-        )
+        error_msg = str(e).lower()
+        if "429" in error_msg or "quota" in error_msg or "rate limit" in error_msg or "exhausted" in error_msg:
+            return "Error: Gemini API rate limit exceeded. Please try again later."
+        elif "api_key" in error_msg or "api key" in error_msg or "unauthenticated" in error_msg:
+            return "Error: Invalid or missing Google API key."
+        else:
+            return f"Gemini API failure: {str(e)}"
 
 
 def main():

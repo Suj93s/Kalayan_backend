@@ -46,6 +46,8 @@ from logger_setup import (
 from change_detector import (
     ChangeDetector
 )
+from backend.vector_store import rebuild_vector_store
+
 
 
 class RagPipeline:
@@ -158,6 +160,10 @@ class RagPipeline:
                 f"GENERATED: "
                 f"{total_chunks}"
             )
+
+            self.logger.info("Populating Qdrant vector store...")
+            stored_count = rebuild_vector_store()
+            self.logger.info(f"Stored {stored_count} chunks in Qdrant")
 
             self.logger.info(
                 "Update completed "
@@ -367,8 +373,7 @@ class RagPipeline:
             clean_text = (
                 clean_website_text(
                     html_content,
-                    skip_nav_footer=
-                    is_contact
+                    skip_nav_footer=False
                 )
             )
 
@@ -380,9 +385,19 @@ class RagPipeline:
 
                 continue
 
+            # Homepage detection
+            if url.rstrip("/") == "https://novoxcore.com":
+                page_name = "home"
+            else:
+                page_name = (
+                    url.rstrip("/")
+                    .split("/")[-1]
+                )
+
+            min_chunk_words = self.config["chunking"].get("min_chunk_words", 15)
+
             # Chunk generation
-            # Chunk generation
-            if is_contact:
+            if is_contact or page_name == "services":
 
                 text_chunks = (
                     generate_overlapping_chunks(
@@ -399,20 +414,12 @@ class RagPipeline:
                     generate_overlapping_chunks(
                         clean_text,
                         chunk_size=chunk_size,
-                        overlap=overlap
+                        overlap=overlap,
+                        min_chunk_words=min_chunk_words
                     )
                 )
 
             for idx, chunk_text in enumerate(text_chunks):
-
-                # Homepage detection
-                if url.rstrip("/") == "https://novoxcore.com":
-                    page_name = "home"
-                else:
-                    page_name = (
-                        url.rstrip("/")
-                        .split("/")[-1]
-                    )
 
                 # Page-specific keywords
                 keywords = {
@@ -439,21 +446,21 @@ class RagPipeline:
                     page_name.lower(),
                     ""
                 )
-            if page_name == "home":
-                 chunk_text = (
-        "NovoxCore is a leading digital product agency "
-        "specializing in AI-powered branding, UI/UX design, "
-        "mobile development, web development, and intelligent automation.\n\n"
-        + chunk_text
-    )
-            enhanced_chunk = (
+                if page_name == "home":
+                    chunk_text = (
+                        "NovoxCore is a leading digital product agency "
+                        "specializing in AI-powered branding, UI/UX design, "
+                        "mobile development, web development, and intelligent automation.\n\n"
+                        + chunk_text
+                    )
+                enhanced_chunk = (
                     f"Page: {page_name}\n"
                     f"Keywords: {page_keywords}\n"
                     f"Source: {url}\n\n"
                     f"{chunk_text}"
                 )
 
-            chunks.append({
+                chunks.append({
                     "id": f"{url}#chunk-{idx}",
                     "text": enhanced_chunk,
                     "metadata": {
