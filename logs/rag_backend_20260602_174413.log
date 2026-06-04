@@ -1,0 +1,39 @@
+[2026-06-02 17:44:13] [INFO] ======================================================================
+[2026-06-02 17:44:13] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-06-02 17:44:13] [INFO] ======================================================================
+[2026-06-02 17:44:13] [INFO] 
+Processing: NovoxCore
+[2026-06-02 17:44:13] [INFO] Starting crawl: https://novoxcore.com/
+[2026-06-02 17:44:13] [INFO] Starting crawl with 1 seed URL(s)
+[2026-06-02 17:44:14] [INFO] [CRAWL] https://novoxcore.com/
+[2026-06-02 17:44:20] [INFO] [OK] https://novoxcore.com/
+[2026-06-02 17:44:21] [INFO] [CRAWL] https://novoxcore.com/contact.html
+[2026-06-02 17:44:28] [INFO] [OK] https://novoxcore.com/contact
+[2026-06-02 17:44:28] [INFO] [CRAWL] http://novoxcore.com/about.html
+[2026-06-02 17:44:32] [INFO] [OK] https://novoxcore.com/about
+[2026-06-02 17:44:32] [INFO] [CRAWL] http://novoxcore.com/services.html
+[2026-06-02 17:44:35] [INFO] [OK] https://novoxcore.com/services
+[2026-06-02 17:44:35] [INFO] [CRAWL] http://novoxcore.com/team.html
+[2026-06-02 17:44:38] [INFO] [OK] https://novoxcore.com/team
+[2026-06-02 17:44:38] [INFO] [CRAWL] http://novoxcore.com/careers.html
+[2026-06-02 17:44:41] [INFO] [OK] https://novoxcore.com/careers
+[2026-06-02 17:44:41] [INFO] Downloaded pages: 6
+[2026-06-02 17:44:41] [INFO] Failed pages: 0
+[2026-06-02 17:44:41] [INFO] Downloaded: 6 pages
+[2026-06-02 17:44:41] [INFO] Duplicates removed: 0
+[2026-06-02 17:44:41] [INFO] Junk filtered: 0
+[2026-06-02 17:44:42] [ERROR] Pipeline error: cannot access local variable 'page_name' where it is not associated with a value
+Traceback (most recent call last):
+  File "/home/sujith/website_backhend/novox-backend-reference/run_pipeline.py", line 144, in run
+    await self._process_website(
+    ...<2 lines>...
+    )
+  File "/home/sujith/website_backhend/novox-backend-reference/run_pipeline.py", line 283, in _process_website
+    await self._process_content(
+        raw_site_data
+    )
+  File "/home/sujith/website_backhend/novox-backend-reference/run_pipeline.py", line 391, in _process_content
+    if is_contact or page_name == "services":
+                     ^^^^^^^^^
+UnboundLocalError: cannot access local variable 'page_name' where it is not associated with a value
+[2026-06-02 17:44:42] [INFO] ======================================================================

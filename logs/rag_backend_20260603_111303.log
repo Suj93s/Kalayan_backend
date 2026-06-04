@@ -1,0 +1,39 @@
+[2026-06-03 11:13:03] [INFO] ======================================================================
+[2026-06-03 11:13:03] [INFO] RAG BACKEND KNOWLEDGE BASE UPDATE
+[2026-06-03 11:13:03] [INFO] ======================================================================
+[2026-06-03 11:13:03] [INFO] 
+Processing: NovoxCore
+[2026-06-03 11:13:03] [INFO] Starting crawl: https://novoxcore.com/
+[2026-06-03 11:13:03] [INFO] Starting crawl with 1 seed URL(s)
+[2026-06-03 11:13:04] [INFO] [CRAWL] https://novoxcore.com/
+[2026-06-03 11:13:10] [INFO] [OK] https://novoxcore.com/
+[2026-06-03 11:13:10] [INFO] [CRAWL] https://novoxcore.com/contact.html
+[2026-06-03 11:13:17] [INFO] [OK] https://novoxcore.com/contact
+[2026-06-03 11:13:18] [INFO] [CRAWL] http://novoxcore.com/about.html
+[2026-06-03 11:13:21] [INFO] [OK] https://novoxcore.com/about
+[2026-06-03 11:13:21] [INFO] [CRAWL] http://novoxcore.com/services.html
+[2026-06-03 11:13:25] [INFO] [OK] https://novoxcore.com/services
+[2026-06-03 11:13:25] [INFO] [CRAWL] http://novoxcore.com/team.html
+[2026-06-03 11:13:28] [INFO] [OK] https://novoxcore.com/team
+[2026-06-03 11:13:28] [INFO] [CRAWL] http://novoxcore.com/careers.html
+[2026-06-03 11:13:31] [INFO] [OK] https://novoxcore.com/careers
+[2026-06-03 11:13:31] [INFO] Downloaded pages: 6
+[2026-06-03 11:13:31] [INFO] Failed pages: 0
+[2026-06-03 11:13:31] [INFO] Downloaded: 6 pages
+[2026-06-03 11:13:31] [INFO] Duplicates removed: 0
+[2026-06-03 11:13:31] [INFO] Junk filtered: 0
+[2026-06-03 11:13:33] [INFO] Chunks generated: 55
+[2026-06-03 11:13:33] [INFO] Saved to: cleaned_chunks/novoxcore_chunks.json
+[2026-06-03 11:13:33] [INFO] Skipping disabled website: NovoxEdTech
+[2026-06-03 11:13:33] [INFO] ======================================================================
+[2026-06-03 11:13:33] [INFO] TOTAL CHUNKS GENERATED: 55
+[2026-06-03 11:13:33] [INFO] Populating Qdrant vector store...
+[2026-06-03 11:13:33] [INFO] Loading chunks from /home/sujith/NovoxCore/backend/cleaned_chunks/novoxcore_chunks.json
+[2026-06-03 11:13:33] [INFO] Loaded 55 chunks
+[2026-06-03 11:13:33] [INFO] Deleted old collection: novoxcore
+[2026-06-03 11:13:33] [INFO] Created collection: novoxcore
+[2026-06-03 11:13:58] [INFO] Generated embeddings for 55 chunks
+[2026-06-03 11:13:59] [INFO] Stored 55 chunks in Qdrant
+[2026-06-03 11:13:59] [INFO] Stored 55 chunks in Qdrant
+[2026-06-03 11:13:59] [INFO] Update completed successfully
+[2026-06-03 11:13:59] [INFO] ======================================================================
