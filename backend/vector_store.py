@@ -15,7 +15,7 @@ from qdrant_client.models import (
     PointStruct
 )
 
-from backend.embedding import get_embedding
+from backend.embedding import get_embeddings
 from logger_setup import get_logger
 
 logger = get_logger()
@@ -89,25 +89,23 @@ def rebuild_vector_store():
         f"{COLLECTION_NAME}"
     )
 
+    texts = [chunk["text"] for chunk in chunks]
+    logger.info(f"Generating embeddings for {len(texts)} chunks (this will take a few minutes due to rate limits)...")
+    vectors = get_embeddings(texts)
+    
     points = []
-
-    for chunk in chunks:
-
-        text = chunk["text"]
-
-        vector = get_embedding(text)
-
+    for i, chunk in enumerate(chunks):
         points.append(
             PointStruct(
                 id=str(uuid4()),
-                vector=vector,
+                vector=vectors[i],
 
                 payload={
                     "chunk_id":
                     chunk["id"],
 
                     "text":
-                    text,
+                    chunk["text"],
 
                     "source_url":
                     chunk["metadata"][

@@ -8,3 +8,5 @@ pydantic
 qdrant-client
 langchain-google-genai
 python-dotenv
+beautifulsoup4
+lxml

@@ -180,6 +180,19 @@ def clean_website_text(
                 if text not in current_section:
                     current_section.append(text + ".")
 
+    # Extract team boxes specifically for names and roles
+    for box in soup.find_all(class_=["team-box", "content"]):
+        text = box.get_text(" - ", strip=True)
+        if text and text not in current_section:
+            # We don't want duplicates if "content" is inside "team-box"
+            # We can just use "team-box", wait, some templates use "content" for generic cards
+            pass
+            
+    for box in soup.find_all(class_="team-box"):
+        text = box.get_text(" - ", strip=True)
+        if text:
+            extra_content.append("Team Member: " + text + ".")
+
     # Explicitly extract emails and phone numbers
     contacts = []
     for a in soup.find_all("a", href=True):
@@ -200,7 +213,7 @@ def clean_website_text(
         extra_content.append("\n".join(current_section))
 
     if extra_content:
-        extracted += "\n---SECTION---\n" + "\n---SECTION---\n".join(
+        extracted += "\n\n" + "\n\n".join(
             extra_content
         )
 
@@ -223,7 +236,7 @@ def clean_website_text(
         sentences
     )
 
-    return " ---SECTION--- ".join(sentences)
+    return " ".join(sentences)
 
 
 def generate_overlapping_chunks(text: str, chunk_size: int = 200, overlap: int = 30, min_chunk_words: int | None = None) -> list[str]:

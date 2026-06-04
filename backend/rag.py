@@ -1,5 +1,6 @@
 import sys
 import os
+import re
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -27,6 +28,27 @@ llm = get_llm()
 
 
 def answer_question(question: str):
+    # Remove punctuation for flexible matching
+    q_clean = re.sub(r'[^\w\s]', '', question.strip().lower())
+    
+    # Handle greetings (fuzzy match for variations of hi, hello, hey, good morning, etc)
+    if re.match(r'^(h[i]+|h[e]+l+[o]+|h[e]+y+|good\s*(morning|afternoon|evening)|gm)$', q_clean):
+        return (
+            "Hi! 👋\n\n"
+            "Welcome to Novox AI.\n\n"
+            "How can I help you today?\n\n"
+            "• About Us\n"
+            "• Services\n"
+            "• Contact\n"
+            "• Location"
+        )
+        
+    # Handle thanks and bye
+    if re.match(r'^(thanks|thank\s*you|thx)$', q_clean):
+        return "You're welcome! Let me know if you need anything else. 😊"
+        
+    if re.match(r'^(bye|goodbye|see\s*you)$', q_clean):
+        return "Goodbye! Have a great day! 👋"
 
     contexts = retrieve_context(
         question,

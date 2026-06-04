@@ -5,12 +5,17 @@ sys.path.insert(0, str(ROOT_DIR))
 
 from backend.retrieval import retrieve_context
 
-def test_retrieval(query: str):
-    print(f"\n==== Testing Query via retrieve_context: {query} ====")
-    contexts = retrieve_context(query)
-    print(f"Retrieved {len(contexts)} contexts.")
+queries = [
+    "who is the director",
+    "who is the md",
+    "who is the founder",
+]
 
-test_retrieval("Services")
-test_retrieval("What services do you provide?")
-test_retrieval("Web development")
-test_retrieval("AI services")
+for q in queries:
+    print(f"=== Query: {q} ===")
+    contexts = retrieve_context(q, k=3)
+    if not contexts:
+        print("No results found.")
+    else:
+        for i, ctx in enumerate(contexts):
+            print(f"[{i}] {ctx}")
