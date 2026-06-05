@@ -35,12 +35,12 @@ def answer_question(question: str):
     if re.match(r'^(h[i]+|h[e]+l+[o]+|h[e]+y+|good\s*(morning|afternoon|evening)|gm)$', q_clean):
         return (
             "Hi! 👋\n\n"
-            "Welcome to Novox AI.\n\n"
+            "Welcome to Kalyan AI.\n\n"
             "How can I help you today?\n\n"
-            "• About Us\n"
+            "• Products\n"
             "• Services\n"
             "• Contact\n"
-            "• Location"
+            "• About Us"
         )
         
     # Handle thanks and bye
@@ -126,7 +126,7 @@ ANSWER:
 def main():
 
     print("=" * 60)
-    print("NOVOXCORE AI ASSISTANT")
+    print("KALYAN AI ASSISTANT")
     print("Type 'exit' to quit")
     print("=" * 60)
 

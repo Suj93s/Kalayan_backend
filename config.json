@@ -1,16 +1,9 @@
 {
   "websites": {
-    "novoxcore": {
-      "name": "NovoxCore",
-      "url": "https://novoxcore.com/",
+    "kalyan": {
+      "name": "Kalyan Jewellery Machines",
+      "url": "https://kalyanjewellerymachines.com/",
       "enabled": true,
-      "auto_update": true,
-      "max_pages": 150
-    },
-    "novoxedtech": {
-      "name": "NovoxEdTech",
-      "url": "https://novoxedtech.com/",
-      "enabled": false,
       "auto_update": true,
       "max_pages": 150
     }

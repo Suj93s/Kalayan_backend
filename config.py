@@ -11,8 +11,7 @@ def is_safe_url(url) -> bool:
         hostname = parsed_url.hostname
         
         if hostname:
-            # Check if novoxcore is anywhere inside the domain structure
-            return "novoxcore.com" in hostname
+            return "kalyanjewellerymachines.com" in hostname
         return False
     except Exception:
         return False
@@ -73,16 +72,7 @@ def is_allowed_url(url) -> bool:
             if pattern in path:
                 return False
                 
-        # Homepage
-        if path == "/" or not path:
-            return True
-            
-        # Explicitly allowed business-relevant pages
-        allowed_patterns = ["about", "services", "careers", "contact", "team"]
-        for pattern in allowed_patterns:
-            if pattern in path:
-                return True
-                
-        return False
+        # For Kalyan, we want to crawl all product pages and subpages, so if it's not excluded, allow it.
+        return True
     except Exception:
         return False

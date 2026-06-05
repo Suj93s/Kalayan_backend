@@ -29,11 +29,9 @@ class IndexRequest(BaseModel):
 
 @app.post("/chat")
 def chat(query: Query):
-
     answer = answer_question(
         query.question
     )
-
     return {
         "answer": answer
     }

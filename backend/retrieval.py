@@ -7,7 +7,7 @@ sys.path.insert(0, str(ROOT_DIR))
 from qdrant_client import QdrantClient
 from backend.embedding import get_embedding
 
-COLLECTION_NAME = "novoxcore"
+COLLECTION_NAME = "kalyan"
 
 client = QdrantClient(
     path="qdrant_db"
@@ -24,25 +24,20 @@ def retrieve_context(
 
     # Query rewriting for company overview questions
     if any(q in query_lower for q in [
-        "what is novox", "tell me about", "tell about", "who are you", 
-        "about novox", "company overview", "about your company", "edtech llp"
+        "what is kalyan", "tell me about", "tell about", "who are you", 
+        "about kalyan", "company overview", "about your company"
     ]):
-        query = query_lower + " novoxcore company overview digital product agency team 20+ skilled employees AI capabilities ML integration automation IoT certifications Google Certified Flutter Developer startup agency"
+        query = query_lower + " kalyan engineering corporation company overview jewellery manufacturing machines 1969 exclusive company calicut"
 
-    # Query rewriting for services questions
+    # Query rewriting for services/products questions
     elif (
-        "services" in query_lower.split()
+        "products" in query_lower.split()
+        or "machines" in query_lower.split()
         or "what do you do" in query_lower
-        or "capabilities" in query_lower
+        or "manufacture" in query_lower
     ):
-        query = query_lower + " services Web Development Mobile App Development Data Analytics Digital Marketing UI/UX Design AI/ML Integration IoT Solutions No-Code Solutions"
+        query = query_lower + " Jewellery Rolling Machines Hydraulic Coining Presses Gold Tar Patti Machines precision rolling"
         
-    # Query rewriting for technology questions
-    elif any(q in query_lower for q in [
-        "technologies", "tech stack", "what do you use", "how do you build"
-    ]):
-        query = query_lower + " technologies AI ML IoT SEO automation Adobe tools Flutter AI capabilities ML integration automation"
-
     query_vector = get_embedding(query)
 
     results = client.query_points(

@@ -20,7 +20,7 @@ from logger_setup import get_logger
 
 logger = get_logger()
 
-COLLECTION_NAME = "novoxcore"
+COLLECTION_NAME = "kalyan"
 
 
 def rebuild_vector_store():
@@ -28,7 +28,7 @@ def rebuild_vector_store():
     chunk_file = (
         ROOT_DIR
         / "cleaned_chunks"
-        / "novoxcore_chunks.json"
+        / "kalyan_chunks.json"
     )
 
     if not chunk_file.exists():

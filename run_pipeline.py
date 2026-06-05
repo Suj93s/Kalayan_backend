@@ -386,7 +386,7 @@ class RagPipeline:
                 continue
 
             # Homepage detection
-            if url.rstrip("/") == "https://novoxcore.com":
+            if url.rstrip("/") == "https://kalyanjewellerymachines.com":
                 page_name = "home"
             else:
                 page_name = (
@@ -423,23 +423,10 @@ class RagPipeline:
 
                 # Page-specific keywords
                 keywords = {
-                    "about":
-                    "AI capabilities ML integration automation IoT SEO",
-
-                    "careers":
-                    "jobs careers hiring technology development programming software engineering",
-
-                    "services":
-                    "services branding UI UX web development mobile development design",
-
-                    "contact":
-                    "contact email phone address reach us",
-
-                    "team":
-                    "team employees staff members people workforce",
-
-                    "home":
-                    "NovoxCore what is novoxcore company overview about novoxcore digital product agency AI branding UI UX web development mobile development automation business services"
+                    "about": "company history about us 1969 exclusive company",
+                    "contact": "contact email phone address reach us location Calicut",
+                    "products": "products machines Jewellery Rolling Machines Hydraulic Coining Presses Gold Tar Patti Machines precision rolling",
+                    "home": "Kalyan Jewellery Machines manufacturer of jewellery manufacturing machines precision rolling"
                 }
 
                 page_keywords = keywords.get(
@@ -448,9 +435,8 @@ class RagPipeline:
                 )
                 if page_name == "home":
                     chunk_text = (
-                        "NovoxCore is a leading digital product agency "
-                        "specializing in AI-powered branding, UI/UX design, "
-                        "mobile development, web development, and intelligent automation.\n\n"
+                        "Kalyan engineering corporation is an exclusive company specializing "
+                        "in the manufacture of various kinds of jewellery manufacturing machines since 1969.\n\n"
                         + chunk_text
                     )
                 enhanced_chunk = (
